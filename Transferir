@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Transferir"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Trasferir">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Qual é o valor da transferencia?"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saldo disponível em conta R$ 69.000,00"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/valorTransferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R$ 0,00"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="16dp" />
+
+        <ImageButton
+            android:id="@+id/btntranferencia"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#D9D9D9"
+            android:padding="14dp"
+            android:src="@drawable/setadireita"
+            android:layout_gravity="end"
+            android:layout_marginTop="300dp"
+            />
+
+    </LinearLayout>
+</ScrollView>
+----------------------------------------------------------------------------------------------------------
+package com.example.prova1
+
+import android.os.Bundle
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class Trasferir : AppCompatActivity() {
+
+    private lateinit var valorTransferencia: EditText
+    private lateinit var btnTransferencia: ImageButton
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_trasferir)
+
+        // Inicializando os componentes
+        valorTransferencia = findViewById(R.id.valorTransferencia)
+        btnTransferencia = findViewById(R.id.btntranferencia)
+
+        // Configurando o listener do botão
+        btnTransferencia.setOnClickListener {
+            realizarTransferencia()
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Transferir)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    private fun realizarTransferencia() {
+        val valor = valorTransferencia.text.toString()
+
+        if (valor.isNotEmpty()) {
+            // Aqui você pode adicionar a lógica para processar a transferência
+            Toast.makeText(this, "Transferência de R$ $valor realizada com sucesso!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Por favor, insira um valor para a transferência.", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
