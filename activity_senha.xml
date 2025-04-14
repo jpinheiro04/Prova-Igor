@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digite a senha de 4 dígitos do seu cartão"
+        android:textSize="16sp"
+        android:textColor="#9C27B0"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="40dp">
+
+        <EditText
+            android:id="@+id/digito1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:inputType="numberPassword"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/digito2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:inputType="numberPassword"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/digito3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:inputType="numberPassword"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/digito4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:inputType="numberPassword"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTransferir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transferir"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#9C27B0"
+        android:padding="12dp"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
